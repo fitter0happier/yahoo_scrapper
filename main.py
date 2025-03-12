@@ -38,6 +38,7 @@ def main():
         end_date = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
 
     yahoo_scraper = YahooScraper(tickers, start_date, end_date, timedif, bucket_name=bucket_name, lambda_name=lambda_name)
+    yahoo_scraper.get_data()
 
 if __name__ == '__main__':
     main()

@@ -179,3 +179,4 @@ cython_debug/
 *.vsix
 
 # Project specific files
+*.json

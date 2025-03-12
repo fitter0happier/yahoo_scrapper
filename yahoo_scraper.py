@@ -1,5 +1,6 @@
 import boto3
 import yfinance as yf
+import json
 
 from datetime import datetime, timedelta
 from typing import List
@@ -25,3 +26,7 @@ class YahooScraper:
         self.lambda_client = boto3.client('lambda', region_name='us-east-2')
         self.batch_size = 500
         self.files_contents_queue = Queue()
+
+    def get_data(self):
+        tickers = yf.Tickers(" ".join(self.tickers))
+        print(tickers.news())
