@@ -27,6 +27,19 @@ class YahooScraper:
         self.batch_size = 500
         self.files_contents_queue = Queue()
 
-    def get_data(self):
-        tickers = yf.Tickers(" ".join(self.tickers))
-        print(tickers.news())
+    def scrape_tickers(self):
+        tickers = [yf.Ticker(ticker_str) for ticker_str in self.tickers]
+        data = tickers[0].get_news()
+        print(data[0]['content'])
+        # for _, lst in  data.items():
+        #     print(lst[0]['content']) 
+
+        # print(data['AMZN'][0]['content']['summary'])
+        # print(data['AMZN'][0]['content']['pubDate'])
+
+    def save_json():
+        ...
+
+
+    def run(self):
+        self.scrape_tickers()
